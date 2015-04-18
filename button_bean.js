@@ -6,7 +6,9 @@ and read its clicks via scratch one
 var mqtt = require('mqtt');
 var Bean = require('ble-bean');
 
-var client = mqtt.connect('mqtt://192.168.3.3');
+var client = mqtt.connect('mqtt://192.168.3.3', function(error) {
+  console.log("error: " + error);
+});
 
 Bean.discover(function(bean){
   // console.log('discovered: ', bean);
@@ -17,12 +19,13 @@ Bean.discover(function(bean){
       console.log('connected');
 
       bean.notifyOne(
-        //called when theres data
+        //called when there is data
         function(data){
           if(data && data.length>=2){
             var value = data[1]<<8 || (data[0]);
             if(value === 1) {
                console.log("clicked:", value);
+               client.publish("lbb_click",value);
             } 
           }
         },
