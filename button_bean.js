@@ -3,7 +3,11 @@
 Only connect to the button bean
 and read its clicks via scratch one
 */
+var mqtt = require('mqtt');
 var Bean = require('ble-bean');
+
+var client = mqtt.connect('mqtt://192.168.3.3');
+
 Bean.discover(function(bean){
   // console.log('discovered: ', bean);
   console.log("bean uuid", bean.uuid);
