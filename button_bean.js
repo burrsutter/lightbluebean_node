@@ -2,11 +2,14 @@
 /*
 Only connect to the button bean
 and read its clicks via scratch one
+then sends message via MQTT
 */
+
 var mqtt = require('mqtt');
 var Bean = require('ble-bean');
+var clickCount = 0;
 
-var client = mqtt.connect('mqtt://192.168.3.3', function(error) {
+var client = mqtt.connect('mqtt://192.168.3.2', function(error) {
   console.log("error: " + error);
 });
 
@@ -15,18 +18,20 @@ Bean.discover(function(bean){
   console.log("bean uuid", bean.uuid);
 
   if(bean.uuid === "b4994c1ec0c8") {
+    console.log("button bean");
     bean.connectAndSetup(function() {
-      console.log('connected');
+      console.log('button bean connected');
 
       bean.notifyOne(
         //called when there is data
         function(data){
           if(data && data.length>=2){
             var value = data[1]<<8 || (data[0]);
-            if(value === 1) {
+             if (value === 1) {
+               clickCount+=1;
                console.log("clicked:", value);
-               client.publish("lbb_click",value);
-            } 
+               client.publish("lbb_click","click count: " + clickCount);
+             }
           }
         },
       //called when the notify is successfully or unsuccessfully setup
@@ -35,6 +40,9 @@ Bean.discover(function(bean){
       });
 
     }); // bean.connectAndSetup
-  } // if bean.uuid
+  } else {
+   console.log("Not Button Bean");
+   process.exit(0);
+  } 
 }); // Bean.discover
 
