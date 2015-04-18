@@ -1,0 +1,15 @@
+{
+  "name": "lightbluebean_node",
+  "version": "0.0.0",
+  "description": "Using Bluetooth to talk to LightBlueBean",
+  "main": "index.js",
+  "dependencies": {
+    "ble-bean": "^2.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
