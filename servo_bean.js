@@ -17,7 +17,7 @@ Bean.discover(function(bean){
 
       // trying to write something to bean
       var buffer = new Buffer(1);
-      buffer.write("3");
+      buffer.write("4");
       bean.writeOne(buffer, 
         function() {
           console.log("buffer: " + buffer);
