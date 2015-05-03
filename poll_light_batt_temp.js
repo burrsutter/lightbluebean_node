@@ -17,8 +17,10 @@ Bean.discover(function(bean){
             function(data){
             console.log("notifyOne");
               if(data && data.length>=2){
-                var value = data[1]<<8 || (data[0]);
-                console.log("data: " + data);
+	            var value0 = data[0];
+                console.log("value0: " + value0);
+                var value1 = data[1]<<8;
+                console.log("value1: " + value1);
               }
             },
             //called when the notify is successfully or unsuccessfully setup
