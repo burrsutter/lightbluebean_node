@@ -18,7 +18,7 @@ Bean.discover(function(bean){
             console.log("notifyOne");
               if(data && data.length>=2){
                 console.log("length: " + data.length);
-	            var value0 = data[0];
+                var value0 = data[0];
                 console.log("value0: " + value0);
                 var value1 = data[1]<<8;
                 console.log("value1: " + value1);
@@ -32,10 +32,10 @@ Bean.discover(function(bean){
             bean.notifyTwo(
             //called when there is data
             function(data){
-            console.log("notifyOne");
+            console.log("notifyTwo");
               if(data && data.length>=2){
                 console.log("length: " + data.length);
-	            var value0 = data[0];
+                var value0 = data[0];
                 console.log("value0: " + value0);
                 var value1 = data[1]<<8;
                 console.log("value1: " + value1);
@@ -45,6 +45,23 @@ Bean.discover(function(bean){
             function(error){
               if(error) console.log("one setup: ", error);
             }); // bean.notifyTwo(
+
+            bean.notifyThree(
+            //called when there is data
+            function(data){
+            console.log("notifyThree");
+              if(data && data.length>=2){
+                console.log("length: " + data.length);
+                var value0 = data[0];
+                console.log("value0: " + value0);
+                var value1 = data[1]<<8;
+                console.log("value1: " + value1);
+              }
+            },
+            //called when the notify is successfully or unsuccessfully setup
+            function(error){
+              if(error) console.log("one setup: ", error);
+            }); // bean.notifyThree(
 
             
         }); // bean.connectAndSetup 
