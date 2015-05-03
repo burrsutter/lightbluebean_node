@@ -17,6 +17,7 @@ Bean.discover(function(bean){
             function(data){
             console.log("notifyOne");
               if(data && data.length>=2){
+                console.log("length: " + data.length);
 	            var value0 = data[0];
                 console.log("value0: " + value0);
                 var value1 = data[1]<<8;
