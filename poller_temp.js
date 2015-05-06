@@ -19,7 +19,7 @@ var pollForData = function() {
     }); // on temp
 
     connectedBean.connectAndSetup(function() {
-      console.log("connectedBean: ", );
+      console.log("connectedBean: connectAndSetup");
       bean.requestTemp(     function(){
         console.log("request temp sent");
       });
