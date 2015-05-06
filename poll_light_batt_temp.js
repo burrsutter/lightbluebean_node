@@ -4,7 +4,7 @@ var Bean = require('ble-bean');
 
 Bean.discover(function(bean){
   console.log('discovered: ', bean);
-  if(bean.uuid ==="78a50449b65c") {
+  if(bean.uuid ==="d03972c91fb6") {
       console.log("Found light, batt, temp bean");
     
       var pollForData = function() {
