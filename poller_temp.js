@@ -7,12 +7,12 @@ var intervalId;
   Bean.discover(function(bean){
     // console.log('bean: ', bean); 
     connectedBean = bean;
-    process.stdout.write("uuid: ", connectedBean.uuid);
-    process.stdout.write("\tname:", connectedBean._peripheral.advertisement.localName);
+    process.stdout.write("uuid: " + connectedBean.uuid);
+    process.stdout.write("\tname: " + connectedBean._peripheral.advertisement.localName);
 
     connectedBean.on("temp", function(temp, valid){
       var status = valid ? "valid" : "invalid";
-      process.stdout.write("\ttemp:\t" + temp);
+      process.stdout.write("\ttemp:" + temp);
     }); // on temp
 
     connectedBean.connectAndSetup(function() {
