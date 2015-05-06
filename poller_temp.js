@@ -19,8 +19,9 @@ var pollForBean = function() {
 
     connectedBean.connectAndSetup(function() {
       // console.log("connectedBean: connectAndSetup");
+
       var pollForData = function() {
-        bean.requestTemp(     function(){
+        connectedBean.requestTemp( function(){
           // console.log("request temp sent");
         });
       } // pollForData
