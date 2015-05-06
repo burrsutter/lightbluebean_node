@@ -18,10 +18,15 @@ Bean.discover(function(bean){
             console.log("notifyFive Light");
               if(data && data.length>=2){
                 var value0 = data[0];
-                console.log("value0: " + value0);
+                // console.log("value0: " + value0);
                 var value1 = data[1]<<8;
-                console.log("value1: " + value1);
-                
+                // console.log("value1: " + value1);
+                console.log("light value: " + (value0 + value1));
+                /*
+                  value0 0-255
+                  value1 will be 0, 256, 512, 768
+                  add the numbers together to get the "real value"
+                */
               }
             },
             //called when the notify is successfully or unsuccessfully setup
