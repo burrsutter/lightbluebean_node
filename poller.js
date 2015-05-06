@@ -9,11 +9,10 @@ var pollForData = function() {
     
     console.log('uuid: ', bean.uuid);
     console.log('count: ', bean.count);
-    console.log('_peripheral: ', bean._peripheral);
-    console.log('bean: ', bean);
-    // console.log('discovered: ', bean.advertisement.localName);
+    console.log('name: ', bean._peripheral.advertisement.localName);
+    // console.log('bean: ', bean);
   });
 }
 
-intervalId = setInterval(pollForData,5000);
+intervalId = setInterval(pollForData,1000);
 
