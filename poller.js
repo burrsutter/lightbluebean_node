@@ -8,7 +8,6 @@ var pollForData = function() {
   Bean.discover(function(bean){
     
     console.log('uuid: ', bean.uuid);
-    console.log('count: ', bean.count);
     console.log('name: ', bean._peripheral.advertisement.localName);
     // console.log('bean: ', bean);
   });
