@@ -8,7 +8,7 @@ var pollForData = function() {
   Bean.discover(function(bean){
     
     console.log('discovered: ', bean.uuid);
-    console.log('discovered: ', bean.rssi);
+    console.log('stuff: ', bean._noble);
     // console.log('bean: ', bean);
     console.log('discovered: ', bean.advertisement.localName);
   });
