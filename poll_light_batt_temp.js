@@ -12,15 +12,16 @@ Bean.discover(function(bean){
         bean.connectAndSetup(function() {
             console.log("connectAndSetup");
             
-            bean.notifyOne(
+            bean.notifyFive(
             //called when there is data
             function(data){
-            console.log("notifyOne Light");
+            console.log("notifyFive Light");
               if(data && data.length>=2){
                 var value0 = data[0];
                 console.log("value0: " + value0);
                 var value1 = data[1]<<8;
                 console.log("value1: " + value1);
+                
               }
             },
             //called when the notify is successfully or unsuccessfully setup
