@@ -20,12 +20,12 @@ var pollForBean = function() {
     connectedBean.connectAndSetup(function() {
       // console.log("connectedBean: connectAndSetup");
 
-      var pollForData = function() {
+      // var pollForData = function() {
         connectedBean.requestTemp( function(){
           // console.log("request temp sent");
         });
-      } // pollForData
-      intervalData = setInterval(pollForData,5000);
+      // } // pollForData
+      // intervalData = setInterval(pollForData,5000);
 
     }); // connectAndSetup
   }); // discover
