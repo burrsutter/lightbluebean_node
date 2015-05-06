@@ -31,12 +31,12 @@ Bean.discover(function(bean){
             bean.notifyTwo(
             //called when there is data
             function(data){
-            console.log("notifyTwo Battery");
+              // console.log("notifyTwo Battery");
               if(data && data.length>=2){
                 var value0 = data[0];
-                console.log("value0: " + value0);
+                // console.log("value0: " + value0);
                 var value1 = data[1]<<8;
-                console.log("value1: " + value1); // holds batt voltage
+                // console.log("value1: " + value1); // holds batt voltage
               }
             },
             //called when the notify is successfully or unsuccessfully setup
@@ -47,12 +47,12 @@ Bean.discover(function(bean){
             bean.notifyThree(
             //called when there is data
             function(data){
-            console.log("notifyThree Temp");
+              // console.log("notifyThree Temp");
               if(data && data.length>=2){
                 var value0 = data[0];
-                console.log("value0: " + value0); // holds celsius value
+                // console.log("value0: " + value0); // holds celsius value
                 var value1 = data[1]<<8;
-                console.log("value1: " + value1);
+                // console.log("value1: " + value1);
               }
             },
             //called when the notify is successfully or unsuccessfully setup
