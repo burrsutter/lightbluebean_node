@@ -7,10 +7,11 @@ var intervalId;
 var pollForData = function() {
   Bean.discover(function(bean){
     
-    console.log('discovered: ', bean.uuid);
+    console.log('uuid: ', bean.uuid);
+    console.log('count: ', bean.count);
     console.log('stuff: ', bean._noble);
-    // console.log('bean: ', bean);
-    console.log('discovered: ', bean.advertisement.localName);
+    console.log('bean: ', bean);
+    // console.log('discovered: ', bean.advertisement.localName);
   });
 }
 
