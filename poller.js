@@ -6,7 +6,8 @@ var intervalId;
 
 var pollForData = function() {
   Bean.discover(function(bean){
-    console.log('discovered: ', bean);
+    console.log('discovered: ', bean.uuid);
+    console.log('discovered: ', bean.advertisement.localName);
   });
 }
 
