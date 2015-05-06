@@ -9,7 +9,7 @@ var pollForData = function() {
     
     console.log('uuid: ', bean.uuid);
     console.log('count: ', bean.count);
-    console.log('stuff: ', bean._noble);
+    console.log('_peripheral: ', bean._peripheral);
     console.log('bean: ', bean);
     // console.log('discovered: ', bean.advertisement.localName);
   });
