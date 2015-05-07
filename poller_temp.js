@@ -6,6 +6,7 @@ var intervalBean;
 var intervalData;
 
 var pollForBean = function() {
+	
   Bean.discover(function(bean){
     // console.log('bean: ', bean); 
     connectedBean = bean; // connectedBean local to the discover function
@@ -20,15 +21,18 @@ var pollForBean = function() {
     connectedBean.connectAndSetup(function() {
       // console.log("connectedBean: connectAndSetup");
 
-      // var pollForData = function() {
+      var pollForData = function() {
         connectedBean.requestTemp( function(){
           // console.log("request temp sent");
         });
-      // } // pollForData
-      // intervalData = setInterval(pollForData,5000);
+      } // pollForData
+      intervalData = setInterval(pollForData,5000);
 
     }); // connectAndSetup
   }); // discover
+
 } // pollForBean
 
-intervalBean = setInterval(pollForBean,1000);
+intervalBean = setInterval(pollForBean,5000);
+
+
