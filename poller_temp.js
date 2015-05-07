@@ -9,20 +9,23 @@ var pollForBean = function() {
 	
   Bean.discover(function(bean){
     // console.log('bean: ', bean); 
-    connectedBean = bean; // connectedBean local to the discover function
+    // connectedBean = bean; // connectedBean local to the discover function
 
-    connectedBean.on("temp", function(temp, valid){
-      // var status = valid ? "valid" : "invalid";
-      process.stdout.write("uuid: " + connectedBean.uuid);
-      process.stdout.write("\tname: " + connectedBean._peripheral.advertisement.localName);
-      process.stdout.write("\ttemp:" + temp + "\n");
+    bean.on("temp", function(temp, valid){
+      var status = valid ? "valid" : "invalid";
+      console.log(valid);
+      if (status == valid) {
+        process.stdout.write("uuid: " + bean.uuid);
+        process.stdout.write("\tname: " + bean._peripheral.advertisement.localName);
+        process.stdout.write("\ttemp:" + temp + "\n");
+      }
     }); // on temp
 
-    connectedBean.connectAndSetup(function() {
+    bean.connectAndSetup(function() {
       // console.log("connectedBean: connectAndSetup");
 
       var pollForData = function() {
-        connectedBean.requestTemp( function(){
+        bean.requestTemp( function(){
           // console.log("request temp sent");
         });
       } // pollForData
