@@ -31,8 +31,8 @@ Bean.discover(function(bean){
         console.log("request temp sent");
       });
     }
-    // poll for sensor data every 1000
-    intervalId = setInterval(readData,1000);
+    // poll for sensor data every 5000
+    intervalId = setInterval(readData,5000);
   });
 });
 

@@ -6,9 +6,10 @@ Bean.discover(function(bean){
 
   bean.on("temp", function(temp, valid){
     var status = valid ? "valid" : "invalid";
-    console.log("received " + status + " temp:\t" + temp);
-    console.log("\ttemperature = %d C", temp.toFixed(1));
+    // console.log("received " + status + " temp:\t" + temp);
+    console.log("temp=%d", temp.toFixed(1));
   });
+
 /*
   bean.on("accell", function(x, y, z, valid){
     var status = valid ? "valid" : "invalid";
@@ -28,7 +29,7 @@ Bean.discover(function(bean){
 */
       bean.requestTemp(
       function(){
-        console.log("request temp sent");
+//        console.log("request temp sent");
       });
     }
     // poll for sensor data every 1000
