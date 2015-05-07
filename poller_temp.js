@@ -18,6 +18,9 @@ var pollForBean = function() {
         process.stdout.write("uuid: " + bean.uuid);
         process.stdout.write("\tname: " + bean._peripheral.advertisement.localName);
         process.stdout.write("\ttemp:" + temp + "\n");
+        bean.disconnect();
+        // do I need both these lines?
+        setTimeout(bean.disconnect.bind(bean, function(){}), 2000);
       }
     }); // on temp
 
