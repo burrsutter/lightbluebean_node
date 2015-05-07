@@ -20,13 +20,13 @@ var intervalData;
     bean.connectAndSetup(function() {
       // console.log("bean: connectAndSetup");
 
-      // var pollForData = function() {
+      var pollForData = function() {
         bean.requestTemp( function(){
           // console.log("request temp sent");
         });
-      // } // pollForData
+      } // pollForData
 
-      // intervalData = setInterval(pollForData,5000);
+      intervalData = setInterval(pollForData,5000);
 
     }); // connectAndSetup
   }); // discover
