@@ -12,9 +12,9 @@ var pollForBean = function() {
     // connectedBean = bean; // connectedBean local to the discover function
 
     bean.on("temp", function(temp, valid){
-      var status = valid ? "valid" : "invalid";
-      console.log(valid);
-      if (status == valid) {
+      // var status = valid ? "valid" : "invalid";
+      // console.log(valid);
+      if (valid) {
         process.stdout.write("uuid: " + bean.uuid);
         process.stdout.write("\tname: " + bean._peripheral.advertisement.localName);
         process.stdout.write("\ttemp:" + temp + "\n");
