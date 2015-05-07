@@ -1,6 +1,9 @@
 // https://www.npmjs.com/package/ble-bean
 
 var Bean = require('ble-bean');
+var mqtt = require('mqtt');
+var client = mqtt.connect('mqtt://192.168.3.3');
+
 Bean.discover(function(bean){
   console.log('discovered: ', bean);
 
@@ -8,25 +11,14 @@ Bean.discover(function(bean){
     var status = valid ? "valid" : "invalid";
     // console.log("received " + status + " temp:\t" + temp);
     console.log("temp=%d", temp.toFixed(1));
+    client.publish("lbb_temp",temp.toFixed(1));
   });
 
-/*
-  bean.on("accell", function(x, y, z, valid){
-    var status = valid ? "valid" : "invalid";
-    console.log("received " + status + " accell\tx:\t" + x + "\ty:\t" + y + "\tz:\t" + z );
-  });
-*/
 
   bean.connectAndSetup(function() {
     console.log('connected');
 
     var readData = function() {
-/*
-      bean.requestAccell(
-      function(){
-        console.log("request accell sent");
-      });
-*/
       bean.requestTemp(
       function(){
 //        console.log("request temp sent");
