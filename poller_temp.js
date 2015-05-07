@@ -24,7 +24,7 @@ var intervalData;
         bean.requestTemp( function(){
           // console.log("request temp sent");
         });
-      } // pollForData
+      // } // pollForData
 
       // intervalData = setInterval(pollForData,5000);
 
