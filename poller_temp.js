@@ -5,7 +5,6 @@ var client = mqtt.connect('mqtt://192.168.3.2');
 var intervalBean;
 var intervalData;
 
-var pollForBean = function() {
 	
   Bean.discover(function(bean){
     // console.log('bean: ', bean); 
@@ -18,9 +17,6 @@ var pollForBean = function() {
         process.stdout.write("uuid: " + bean.uuid);
         process.stdout.write("\tname: " + bean._peripheral.advertisement.localName);
         process.stdout.write("\ttemp:" + temp + "\n");
-        bean.disconnect();
-        // do I need both these lines?
-        setTimeout(bean.disconnect.bind(bean, function(){}), 2000);
       }
     }); // on temp
 
@@ -39,6 +35,6 @@ var pollForBean = function() {
 
 } // pollForBean
 
-intervalBean = setInterval(pollForBean,5000);
+
 
 
