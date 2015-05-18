@@ -9,7 +9,7 @@ var mqtt = require('mqtt');
 var Bean = require('ble-bean');
 var clickCount = 0;
 
-var client = mqtt.connect('mqtt://192.168.3.2', function(error) {
+var client = mqtt.connect('mqtt://192.168.3.5', function(error) {
   console.log("error: " + error);
 });
 
@@ -30,7 +30,7 @@ Bean.discover(function(bean){
              if (value === 1) {
                clickCount+=1;
                console.log("clicked:", value);
-               client.publish("lbb_click","click count: " + clickCount);
+               client.publish("lbb_click",clickCount);
              }
           }
         },
