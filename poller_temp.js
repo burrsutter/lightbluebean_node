@@ -26,7 +26,7 @@ var intervalData;
         });
       } // pollForData
 
-      intervalData = setInterval(pollForData,5000);
+      intervalData = setInterval(pollForData,1000);
 
     }); // connectAndSetup
   }); // discover
